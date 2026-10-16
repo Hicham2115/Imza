@@ -35,7 +35,7 @@ export default function Component() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50" id="top">
+    <header className="absolute inset-x-0 top-0 z-50 max-sm:relative max-sm:mb-2" id="top">
       <div
         aria-label="Complimentary delivery over 800 MAD · Crafted in Morocco · Made to feel like you"
         className="flex h-8 items-center overflow-hidden bg-[#43101c] text-[0.66rem] font-medium tracking-[0.2em] text-[#f6efe6] max-sm:h-7 max-sm:text-[0.54rem] max-sm:tracking-[0.12em]"
@@ -53,7 +53,7 @@ export default function Component() {
           ))}
         </div>
       </div>
-      <div className="grid h-[4.5rem] grid-cols-[1fr_auto_1fr] items-center bg-transparent px-[clamp(1.5rem,5vw,5rem)] max-md:grid-cols-[1fr_auto_1fr] max-md:px-4 max-sm:h-28 max-sm:pb-5">
+      <div className="grid h-[4.5rem] grid-cols-[1fr_auto_1fr] items-center bg-transparent px-[clamp(1.5rem,5vw,5rem)] max-md:grid-cols-[1fr_auto_1fr] max-md:px-4 max-sm:h-20">
         <div className="flex items-center">
           <Button
             aria-expanded={menuOpen}
@@ -65,11 +65,7 @@ export default function Component() {
             size="icon"
             variant="ghost"
           >
-            {menuOpen ? (
-              <X aria-hidden="true" className="size-5" />
-            ) : (
-              <Menu aria-hidden="true" className="size-5" />
-            )}
+            <Menu aria-hidden="true" className="size-5" />
           </Button>
           <nav
             className="flex items-center gap-[clamp(0.8rem,2.5vw,2.75rem)] max-md:hidden"
