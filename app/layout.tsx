@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Allura, Bodoni_Moda, DM_Sans } from "next/font/google";
 import LenisProvider from "@/components/lenis-provider";
 import { CommerceProvider } from "@/components/commerce-provider";
+import { ScrollEffects } from "@/components/scroll-effects";
 import "./globals.css";
 
 const displayFont = Bodoni_Moda({
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body>
         <LenisProvider />
+        <ScrollEffects />
         <CommerceProvider>{children}</CommerceProvider>
       </body>
     </html>

@@ -5,7 +5,6 @@ import Link from "next/link";
 import {
   createContext,
   useContext,
-  useEffect,
   useMemo,
   useState,
   type ReactNode,
@@ -43,45 +42,6 @@ export function CommerceProvider({ children }: { children: ReactNode }) {
   const [cart, setCart] = useState<CartEntry[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [panel, setPanel] = useState<Panel>(null);
-  const [hydrated, setHydrated] = useState(false);
-
-  useEffect(() => {
-    try {
-      const savedCart = JSON.parse(localStorage.getItem("imza-cart") ?? "[]");
-      const savedFavorites = JSON.parse(localStorage.getItem("imza-favorites") ?? "[]");
-      const validCart = Array.isArray(savedCart)
-        ? savedCart.flatMap((entry): CartEntry[] => {
-            const product = suitColors.find(
-              (color) => color.name === entry?.product?.name,
-            );
-            const quantity = Number(entry?.quantity);
-            return product && Number.isInteger(quantity) && quantity > 0
-              ? [{ product, quantity }]
-              : [];
-          })
-        : [];
-      const validFavorites = Array.isArray(savedFavorites)
-        ? savedFavorites.filter(
-            (name): name is string =>
-              typeof name === "string" &&
-              suitColors.some((product) => product.name === name),
-          )
-        : [];
-
-      setCart(validCart);
-      setFavorites(validFavorites);
-    } catch {
-      localStorage.removeItem("imza-cart");
-      localStorage.removeItem("imza-favorites");
-    }
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    localStorage.setItem("imza-cart", JSON.stringify(cart));
-    localStorage.setItem("imza-favorites", JSON.stringify(favorites));
-  }, [cart, favorites, hydrated]);
 
   const value = useMemo<CommerceContextValue>(
     () => ({
