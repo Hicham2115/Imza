@@ -8,7 +8,8 @@ import { FeaturedSuitSection } from "@/components/featured-suit-section";
 import { BrandStorySection } from "@/components/brand-story-section";
 import { ServicesSection } from "@/components/services-section";
 import { JournalSection } from "@/components/journal-section";
-import { ContactSection } from "@/components/contact-section";
+import { SignatureSuitCampaign } from "@/components/signature-suit-campaign";
+import { IvorySuitCampaign } from "@/components/ivory-suit-campaign";
 
 export default function Home() {
   return (
@@ -18,11 +19,16 @@ export default function Home() {
         <Hero />
         <BrandValuesSection />
         <FeaturedSuitSection />
+
         <BrandStorySection />
+        <SignatureSuitCampaign />
+        <IvorySuitCampaign />
+
         <ServicesSection />
+        <Reviews />
         <JournalSection />
         <FAQ />
-        <ContactSection />
+        <Contact />
       </main>
     </>
   );
