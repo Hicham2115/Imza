@@ -38,3 +38,41 @@
 - [x] Check mobile menu and primary CTA behavior.
 
 final result: passed
+
+---
+
+# Products page design QA
+
+## Comparison target
+
+- Source visual: user-provided products page screenshot in this conversation (the IMZA six-color collection page).
+- Implementation: `/products` at `http://localhost:3000/products`.
+- Desktop review: 1280 × 960 CSS viewport. Mobile review: 390 × 844 CSS viewport.
+- State: all six colors visible, no filters selected, featured sort selected, cart and favorites empty.
+
+## Visual review
+
+- The centered editorial title, breadcrumb, warm cream background, oxblood typography, swatch controls, and six product images follow the reference.
+- Desktop uses four columns for the first four colors and two wider cards for the final colors. Mobile uses two columns and wraps the filter controls so all color choices remain visible.
+- The custom sort menu matches the cream, oxblood, and muted-gold palette. Product cards include quick add-to-cart and favorite controls, plus a labeled add-to-cart button below each card.
+- No horizontal page overflow appeared at the 390 px mobile viewport.
+
+## Interaction review
+
+- Multi-select color filters displayed Bordeaux and Sauge together and updated the visible count; “Effacer les filtres” restored all six.
+- Custom sort menu opened, changed to alphabetical order, and returned to featured order.
+- Add-to-cart updated the header count, showed an accessible confirmation, and populated the cart drawer with a quantity control.
+- Favorite control updated the header count and populated the favorites drawer. Removing items restored the empty state.
+- Browser preview state was reset after the interaction review.
+
+## Implementation checklist
+
+- [x] Match the supplied collection page layout and visual palette.
+- [x] Support multiple active color filters and clear filters.
+- [x] Use a branded custom sort menu.
+- [x] Add cart controls and a shared cart drawer.
+- [x] Add favorites controls and a shared favorites drawer.
+- [x] Review desktop and mobile layouts at explicit viewport sizes.
+- [x] Check that the mobile document has no horizontal overflow.
+
+final result: passed

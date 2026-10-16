@@ -23,6 +23,7 @@ export function SelectInput({
 }: SelectInputProps) {
   return (
     <SelectPrimitive.Root
+      modal={false}
       onValueChange={(nextValue) => {
         if (typeof nextValue === "string") onValueChange(nextValue);
       }}

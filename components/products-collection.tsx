@@ -151,18 +151,24 @@ export default function ProductsCollection() {
               key={product.name}
             >
               <div className="relative">
-                <div
-                  className={`relative block w-full overflow-hidden bg-[#eee7dc] ${wideTile ? "aspect-[0.62] min-[760px]:aspect-[1.08]" : "aspect-[0.62]"}`}
+                <Link
+                  aria-label={`Voir le tailleur signature ${product.name}`}
+                  className="block"
+                  href={`/products/${productSlug(product.name)}`}
                 >
-                  <Image
-                    alt={`Le tailleur signature IMZA en coloris ${product.name.toLowerCase()}`}
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
-                    fill
-                    priority={product.name === "Bordeaux"}
-                    sizes={wideTile ? "(max-width: 760px) 48vw, 50vw" : "(max-width: 760px) 48vw, 25vw"}
-                    src={product.image}
-                  />
-                </div>
+                  <div
+                    className={`relative block w-full overflow-hidden bg-[#eee7dc] ${wideTile ? "aspect-[0.62] min-[760px]:aspect-[1.08]" : "aspect-[0.62]"}`}
+                  >
+                    <Image
+                      alt={`Le tailleur signature IMZA en coloris ${product.name.toLowerCase()}`}
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
+                      fill
+                      priority={product.name === "Bordeaux"}
+                      sizes={wideTile ? "(max-width: 760px) 48vw, 50vw" : "(max-width: 760px) 48vw, 25vw"}
+                      src={product.image}
+                    />
+                  </div>
+                </Link>
                 <button
                   aria-label={`Ajouter ${product.name} au panier`}
                   className={`store-button absolute right-12 top-2 z-10 flex size-9 items-center justify-center rounded-full backdrop-blur-sm sm:right-14 sm:top-3 ${isInCart ? "bg-[#55101f] text-[#f6efe6]" : "bg-[#f6efe6]/90 text-[#55101f]"}`}
@@ -186,9 +192,12 @@ export default function ProductsCollection() {
               </div>
 
               <div className="pt-2 text-center sm:pt-3">
-                <p className="m-0 font-serif text-[clamp(0.92rem,1.45vw,1.2rem)] leading-tight text-[#38141c]">
+                <Link
+                  className="m-0 font-serif text-[clamp(0.92rem,1.45vw,1.2rem)] leading-tight text-[#38141c] underline decoration-transparent underline-offset-4 transition-colors hover:text-[#55101f] hover:decoration-[#bda984]"
+                  href={`/products/${productSlug(product.name)}`}
+                >
                   Le tailleur signature
-                </p>
+                </Link>
                 <p className="mb-0 mt-1 text-[0.56rem] font-medium uppercase tracking-[0.17em] text-[#735c57] sm:text-[0.62rem]">
                   {product.name}
                 </p>

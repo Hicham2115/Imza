@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -42,7 +43,7 @@ export default function Hero() {
           <br />
           Toujours vous.
         </p>
-        <a
+        <Link
           className="store-button relative z-20 mt-8 inline-flex min-h-[3.6rem] w-[20rem] items-center justify-between gap-2 bg-[#55101f] px-6 text-[0.68rem] font-bold uppercase tracking-[0.16em] !text-[#f6efe6] no-underline hover:bg-[#43101c] max-sm:mt-5 max-sm:min-h-[clamp(3.4rem,14vw,4.75rem)] max-sm:w-full max-sm:gap-2 max-sm:px-[4vw] max-sm:text-[clamp(0.58rem,2.8vw,0.9rem)] max-sm:tracking-[0.11em]"
           href="/products"
         >
@@ -53,7 +54,7 @@ export default function Hero() {
             aria-hidden="true"
             className="size-5 shrink-0 stroke-[1.5] text-[#f6efe6]"
           />
-        </a>
+        </Link>
       </div>
     </section>
   );
