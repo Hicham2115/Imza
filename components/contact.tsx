@@ -60,8 +60,8 @@ export default function Contact() {
       >
         <div className="flex flex-col px-7 py-10 sm:px-12 sm:py-12 lg:min-h-[820px] lg:justify-between lg:px-[8%] lg:py-14">
           <div className="mx-auto w-full max-w-[900px] text-center lg:mt-10">
-            <p className="contact-script relative z-10 mx-auto max-w-[12ch] text-[clamp(3.1rem,5vw,5rem)] leading-[0.82] tracking-[-0.035em] text-[#9c7650]">
-              Un mot pour la<br />Maison
+            <p className="contact-script relative z-10 mx-auto w-full whitespace-nowrap text-[clamp(2.35rem,4vw,4.5rem)] leading-none tracking-[-0.035em] text-[#9c7650]">
+              Un mot pour la Maison
             </p>
             <h2
               className="-mt-1 max-w-[14ch] font-serif text-[clamp(2.35rem,4vw,4.3rem)] font-normal leading-[1.02] tracking-[-0.045em] text-[#38141c] sm:mx-auto"

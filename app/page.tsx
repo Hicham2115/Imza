@@ -10,6 +10,7 @@ import { ServicesSection } from "@/components/services-section";
 import { JournalSection } from "@/components/journal-section";
 import { SignatureSuitCampaign } from "@/components/signature-suit-campaign";
 import { IvorySuitCampaign } from "@/components/ivory-suit-campaign";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
         <FAQ />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
