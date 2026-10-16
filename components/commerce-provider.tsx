@@ -13,18 +13,18 @@ import { Heart, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { suitColors } from "@/data/homepage";
 
 type SuitColor = (typeof suitColors)[number];
-type CartEntry = { product: SuitColor; quantity: number };
+type CartEntry = { product: SuitColor; size?: string; quantity: number };
 type Panel = "cart" | "favorites" | null;
 
 type CommerceContextValue = {
   cart: CartEntry[];
   favorites: string[];
   panel: Panel;
-  addToCart: (product: SuitColor) => void;
+  addToCart: (product: SuitColor, size?: string) => void;
   toggleFavorite: (product: SuitColor) => void;
-  removeFromCart: (productName: string) => void;
+  removeFromCart: (productName: string, size?: string) => void;
   removeFavorite: (productName: string) => void;
-  changeQuantity: (productName: string, change: number) => void;
+  changeQuantity: (productName: string, change: number, size?: string) => void;
   openPanel: (panel: Panel) => void;
 };
 
@@ -48,18 +48,18 @@ export function CommerceProvider({ children }: { children: ReactNode }) {
       cart,
       favorites,
       panel,
-      addToCart(product) {
+      addToCart(product, size) {
         setCart((current) => {
           const existing = current.find(
-            (entry) => entry.product.name === product.name,
+            (entry) => entry.product.name === product.name && entry.size === size,
           );
           return existing
             ? current.map((entry) =>
-                entry.product.name === product.name
+                entry.product.name === product.name && entry.size === size
                   ? { ...entry, quantity: entry.quantity + 1 }
                   : entry,
               )
-            : [...current, { product, quantity: 1 }];
+            : [...current, { product, size, quantity: 1 }];
         });
       },
       toggleFavorite(product) {
@@ -69,18 +69,22 @@ export function CommerceProvider({ children }: { children: ReactNode }) {
             : [...current, product.name],
         );
       },
-      removeFromCart(productName) {
+      removeFromCart(productName, size) {
         setCart((current) =>
-          current.filter((entry) => entry.product.name !== productName),
+          current.filter(
+            (entry) => entry.product.name !== productName || entry.size !== size,
+          ),
         );
       },
       removeFavorite(productName) {
         setFavorites((current) => current.filter((name) => name !== productName));
       },
-      changeQuantity(productName, change) {
+      changeQuantity(productName, change, size) {
         setCart((current) =>
           current.flatMap((entry) => {
-            if (entry.product.name !== productName) return [entry];
+            if (entry.product.name !== productName || entry.size !== size) {
+              return [entry];
+            }
             const quantity = entry.quantity + change;
             return quantity > 0 ? [{ ...entry, quantity }] : [];
           }),
@@ -159,8 +163,8 @@ function CommercePanel() {
           cart.length ? (
             <>
               <ul className="m-0 flex-1 divide-y divide-[#d6c7b7] overflow-y-auto px-6 sm:px-8">
-                {cart.map(({ product, quantity }) => (
-                  <li className="flex gap-4 py-5" key={product.name}>
+                {cart.map(({ product, quantity, size }) => (
+                  <li className="flex gap-4 py-5" key={`${product.name}-${size ?? "unsized"}`}>
                     <Image
                       alt={`Tailleur IMZA ${product.name.toLowerCase()}`}
                       className="h-28 w-[76px] object-cover object-top"
@@ -172,7 +176,7 @@ function CommercePanel() {
                       <div>
                         <p className="m-0 font-serif text-lg">Le tailleur signature</p>
                         <p className="mb-0 mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-[#735c57]">
-                          {product.name}
+                          {product.name}{size ? ` · Taille ${size}` : ""}
                         </p>
                       </div>
                       <div className="flex items-center justify-between">
@@ -180,7 +184,7 @@ function CommercePanel() {
                           <button
                             aria-label={`Retirer une unité de ${product.name}`}
                             className="flex size-8 items-center justify-center hover:bg-[#efe5da]"
-                            onClick={() => changeQuantity(product.name, -1)}
+                            onClick={() => changeQuantity(product.name, -1, size)}
                             type="button"
                           >
                             <Minus aria-hidden="true" className="size-3.5" />
@@ -189,7 +193,7 @@ function CommercePanel() {
                           <button
                             aria-label={`Ajouter une unité de ${product.name}`}
                             className="flex size-8 items-center justify-center hover:bg-[#efe5da]"
-                            onClick={() => changeQuantity(product.name, 1)}
+                            onClick={() => changeQuantity(product.name, 1, size)}
                             type="button"
                           >
                             <Plus aria-hidden="true" className="size-3.5" />
@@ -198,7 +202,7 @@ function CommercePanel() {
                         <button
                           aria-label={`Retirer ${product.name} du panier`}
                           className="flex size-9 items-center justify-center text-[#735c57] hover:text-[#55101f]"
-                          onClick={() => removeFromCart(product.name)}
+                          onClick={() => removeFromCart(product.name, size)}
                           type="button"
                         >
                           <Trash2 aria-hidden="true" className="size-4" />

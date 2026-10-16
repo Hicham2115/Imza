@@ -78,10 +78,10 @@ export default function ProductsCollection() {
       </header>
 
       <div className="mt-8 flex flex-col gap-4 border-b border-[#d6c7b7] pb-4 sm:mt-10 sm:gap-5 sm:pb-5 md:flex-row md:items-center md:justify-between">
-        <div className="flex min-w-0 items-center gap-3 overflow-hidden">
+        <div className="flex min-w-0 flex-wrap items-center gap-3">
           <SlidersHorizontal aria-hidden="true" className="size-4 shrink-0 text-[#55101f]" strokeWidth={1.5} />
           <span className="shrink-0 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#55101f] sm:text-[0.62rem]">Couleur</span>
-          <div aria-label="Filtrer par couleur" className="product-filter-list flex min-w-0 items-center gap-3 overflow-x-auto pb-1 sm:gap-4" role="group">
+          <div aria-label="Filtrer par couleur" className="product-filter-list flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1 pb-1 sm:gap-x-4" role="group">
             <button
               aria-pressed={activeColors.length === 0}
               className="product-filter"

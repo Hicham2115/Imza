@@ -185,11 +185,11 @@ body {
 }
 
 .product-filter-list {
-  scrollbar-width: none;
+  scrollbar-width: none !important;
 }
 
 .product-filter-list::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 .product-filter:hover,
