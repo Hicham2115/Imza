@@ -44,7 +44,7 @@ function ReviewTrack({ reverse = false, label }: { reverse?: boolean; label: str
 
 export default function Reviews() {
   return (
-    <section aria-labelledby="reviews-title" className="overflow-hidden bg-[#f1e9dd] py-20 text-primary sm:py-24 max-sm:py-12" id="reviews">
+    <section aria-labelledby="reviews-title" className="overflow-hidden bg-[#f6efe6] py-20 text-primary sm:py-24 max-sm:py-12" id="reviews">
       <div className="mx-auto mb-12 max-w-4xl px-6 text-center sm:mb-16 max-sm:mb-7 max-sm:px-5">
         <p className="m-0 text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#9b7848]">La communauté IMZA</p>
         <h2 className="mb-0 mt-4 font-serif text-[clamp(2.8rem,6vw,5.5rem)] font-normal leading-[0.98] tracking-[-0.05em] text-[#261b17] max-sm:mt-3 max-sm:text-[2.25rem]" id="reviews-title">Des mots qui nous ressemblent.</h2>

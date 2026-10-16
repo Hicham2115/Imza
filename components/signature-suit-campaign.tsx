@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function SignatureSuitCampaign() {
   return (
-    <section aria-labelledby="signature-campaign-title" className="relative isolate min-h-[680px] overflow-hidden bg-[#32121a] text-[#f8f2e9] sm:min-h-[740px] lg:min-h-[min(860px,90svh)]">
+    <section aria-labelledby="signature-campaign-title" className="relative isolate min-h-[680px] overflow-hidden bg-[#55101f] text-[#f8f2e9] sm:min-h-[740px] lg:min-h-[min(860px,90svh)]">
       <picture className="absolute inset-0">
         <source media="(max-width: 639px)" srcSet="/imza-signature-campaign-mobile.webp" />
         <Image

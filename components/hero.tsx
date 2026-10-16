@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     <section
-      className="relative isolate h-svh min-h-[680px] max-h-[1300px] overflow-hidden bg-[#d8b294] max-sm:h-auto max-sm:min-h-0 max-sm:max-h-none max-sm:bg-[#f6efe6]"
+      className="relative isolate h-svh min-h-[680px] max-h-[1300px] overflow-hidden bg-[#f6efe6] max-sm:h-auto max-sm:min-h-0 max-sm:max-h-none max-sm:bg-[#f6efe6]"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0 max-sm:bottom-auto max-sm:h-[130vw] max-sm:max-h-[720px]">

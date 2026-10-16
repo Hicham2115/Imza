@@ -26,7 +26,7 @@ export default function FAQ() {
   return (
     <section
       aria-labelledby="faq-title"
-      className="bg-[#eee3d7] px-[clamp(1.5rem,5vw,5rem)] py-24 text-primary max-sm:px-5 max-sm:py-16"
+      className="bg-[#f6efe6] px-[clamp(1.5rem,5vw,5rem)] py-24 text-primary max-sm:px-5 max-sm:py-16"
       id="faq"
     >
       <div className="mx-auto grid max-w-[90rem] grid-cols-[0.8fr_1.2fr] gap-[clamp(2.5rem,9vw,9rem)] max-md:grid-cols-[0.9fr_1.1fr] max-sm:grid-cols-1 max-sm:gap-9">

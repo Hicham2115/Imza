@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Gift, Gem, Ruler } from "lucide-react";
+import { Gift, Gem, Mail, Ruler } from "lucide-react";
 
 const contactTopics = [
   {
@@ -22,7 +22,7 @@ const contactTopics = [
 ];
 
 const fieldClassName =
-  "mt-2 h-9 w-full border-0 border-b border-[#788478] bg-transparent px-0 font-sans text-base text-[#38141c] outline-none transition-colors placeholder:text-transparent focus:border-[#9c7650] focus:ring-0";
+  "mt-2 h-9 w-full border-0 border-b border-[#788478] bg-transparent px-0 font-sans text-base text-[#38141c] outline-none placeholder:text-transparent";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -52,7 +52,7 @@ export default function Contact() {
   return (
     <section
       aria-labelledby="contact-title"
-      className="bg-[#38141c] px-3 py-10 sm:px-[4%] sm:py-16 lg:py-20"
+      className="bg-[#55101f] px-3 py-10 sm:px-[4%] sm:py-16 lg:py-20"
       id="contact"
     >
       <div
@@ -60,8 +60,8 @@ export default function Contact() {
       >
         <div className="flex flex-col px-7 py-10 sm:px-12 sm:py-12 lg:min-h-[820px] lg:justify-between lg:px-[8%] lg:py-14">
           <div className="mx-auto max-w-[760px] text-center lg:mt-10">
-            <p className="contact-script relative z-10 text-[clamp(3.5rem,6vw,6.7rem)] leading-[0.9] text-[#9c7650]">
-              Un mot pour la Maison
+            <p className="contact-script relative z-10 text-[clamp(3.3rem,5.5vw,5.6rem)] leading-[0.78] tracking-[-0.02em] text-[#9c7650]">
+              Un mot pour la<br />Maison
             </p>
             <h2
               className="-mt-1 max-w-[14ch] font-serif text-[clamp(2.35rem,4vw,4.3rem)] font-normal leading-[1.02] tracking-[-0.045em] text-[#38141c] sm:mx-auto"
@@ -109,8 +109,20 @@ export default function Contact() {
         </div>
 
         <div className="border-t border-dashed border-[#a99a89] px-7 pb-10 pt-8 sm:px-10 sm:pb-12 sm:pt-10 lg:flex lg:min-h-[820px] lg:flex-col lg:justify-center lg:border-l lg:border-t-0 lg:px-[8%] lg:py-14">
-          <div aria-hidden="true" className="contact-stamps mx-auto mb-8 h-[clamp(6rem,14vw,10rem)] w-full max-w-[540px] sm:mb-10" />
+          <div className="mb-8 border-b border-[#9c7650]/35 pb-6 sm:mb-10 sm:pb-8">
+            <p className="m-0 flex items-center gap-2 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#9c7650]">
+              <Mail aria-hidden="true" className="size-4" strokeWidth={1.5} />
+              Écrivez à la Maison
+            </p>
+            <h3 className="mb-0 mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] leading-[1.05] tracking-[-0.035em] text-[#38141c]" id="contact-form-title">
+              Parlons de votre projet.
+            </h3>
+            <p className="mb-0 mt-3 max-w-md text-sm leading-6 text-[#735c57]">
+              Une question sur la coupe ou une demande particulière ? Notre équipe vous répond avec plaisir.
+            </p>
+          </div>
           <form
+            aria-labelledby="contact-form-title"
             className="space-y-5 sm:space-y-7"
             id="contact-form"
             onSubmit={handleSubmit}
@@ -119,7 +131,7 @@ export default function Contact() {
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="firstName">
                 Prénom <span aria-hidden="true">*</span>
               </label>
-              <input autoComplete="given-name" className={fieldClassName} id="firstName" maxLength={80} name="firstName" required />
+              <input autoComplete="given-name" className={`${fieldClassName} contact-first-name`} id="firstName" maxLength={80} name="firstName" required />
             </div>
             <div>
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="lastName">
@@ -137,7 +149,7 @@ export default function Contact() {
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="message">
                 Comment pouvons-nous vous aider ? <span aria-hidden="true">*</span>
               </label>
-              <textarea className="contact-message-field mt-2 min-h-[90px] w-full resize-y border-0 border-b border-[#788478] bg-transparent px-0 pt-2 font-sans text-base text-[#38141c] outline-none transition-colors focus:border-[#9c7650] focus:ring-0" id="message" maxLength={1200} name="message" required rows={2} />
+              <textarea className="contact-message-field mt-2 min-h-[90px] w-full resize-y border-0 border-b border-[#788478] bg-transparent px-0 pt-2 font-sans text-base text-[#38141c] outline-none" id="message" maxLength={1200} name="message" required rows={2} />
             </div>
             <div className="flex flex-col gap-3 pt-2 sm:items-end">
               <button className="inline-flex h-[52px] items-center justify-center self-end rounded-[12px] border border-[#55101f] bg-transparent px-8 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#55101f] transition-colors hover:bg-[#55101f] hover:text-[#f6efe6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9c7650]" type="submit">
