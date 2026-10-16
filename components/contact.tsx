@@ -22,7 +22,7 @@ const contactTopics = [
 ];
 
 const fieldClassName =
-  "mt-2 h-9 w-full border-0 border-b border-[#788478] bg-transparent px-0 font-sans text-base text-[#38141c] outline-none placeholder:text-transparent";
+  "contact-form-field mt-2 h-[3.25rem] w-full rounded-t-[0.45rem] border border-[#9c7650]/40 border-b-[#9c7650] bg-white/25 px-[0.85rem] font-sans text-base text-[#38141c] outline-none placeholder:text-transparent";
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -59,8 +59,8 @@ export default function Contact() {
         className="contact-paper mx-auto grid max-w-[1480px] overflow-hidden rounded-[22px] border border-[#e2d5bf] text-primary shadow-[0_24px_70px_rgba(0,0,0,0.18)] lg:grid-cols-[1.16fr_0.84fr]"
       >
         <div className="flex flex-col px-7 py-10 sm:px-12 sm:py-12 lg:min-h-[820px] lg:justify-between lg:px-[8%] lg:py-14">
-          <div className="mx-auto max-w-[760px] text-center lg:mt-10">
-            <p className="contact-script relative z-10 text-[clamp(3.3rem,5.5vw,5.6rem)] leading-[0.78] tracking-[-0.02em] text-[#9c7650]">
+          <div className="mx-auto w-full max-w-[900px] text-center lg:mt-10">
+            <p className="contact-script relative z-10 mx-auto max-w-[12ch] text-[clamp(3.1rem,5vw,5rem)] leading-[0.82] tracking-[-0.035em] text-[#9c7650]">
               Un mot pour la<br />Maison
             </p>
             <h2
@@ -131,7 +131,7 @@ export default function Contact() {
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="firstName">
                 Prénom <span aria-hidden="true">*</span>
               </label>
-              <input autoComplete="given-name" className={`${fieldClassName} contact-first-name`} id="firstName" maxLength={80} name="firstName" required />
+              <input autoComplete="given-name" className={fieldClassName} id="firstName" maxLength={80} name="firstName" required />
             </div>
             <div>
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="lastName">
@@ -149,7 +149,7 @@ export default function Contact() {
               <label className="block font-serif text-[15px] text-[#735c57]" htmlFor="message">
                 Comment pouvons-nous vous aider ? <span aria-hidden="true">*</span>
               </label>
-              <textarea className="contact-message-field mt-2 min-h-[90px] w-full resize-y border-0 border-b border-[#788478] bg-transparent px-0 pt-2 font-sans text-base text-[#38141c] outline-none" id="message" maxLength={1200} name="message" required rows={2} />
+              <textarea className="contact-form-field mt-2 min-h-[90px] w-full resize-y rounded-t-[0.45rem] border border-[#9c7650]/40 border-b-[#9c7650] bg-white/25 px-[0.85rem] py-3 font-sans text-base text-[#38141c] outline-none" id="message" maxLength={1200} name="message" required rows={2} />
             </div>
             <div className="flex flex-col gap-3 pt-2 sm:items-end">
               <button className="inline-flex h-[52px] items-center justify-center self-end rounded-[12px] border border-[#55101f] bg-transparent px-8 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#55101f] transition-colors hover:bg-[#55101f] hover:text-[#f6efe6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9c7650]" type="submit">
