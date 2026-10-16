@@ -113,16 +113,16 @@ export default function ProductsCollection() {
         <div className="flex shrink-0 items-center justify-between gap-3 self-end text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#55101f] sm:text-[0.62rem] md:self-auto">
           <span aria-hidden="true" className="hidden h-6 w-px bg-[#c9b8a5] md:block" />
           <span>Trier par</span>
-          <div className="relative">
-            <button aria-expanded={sortOpen} aria-haspopup="listbox" aria-label={`Trier les produits : ${sortOptions.find((option) => option.value === sortMode)?.label}`} className="flex min-h-10 min-w-[172px] items-center justify-between gap-4 border border-[#bda984] bg-[#f6efe6] px-3 text-left text-[0.75rem] font-normal normal-case tracking-normal text-[#38141c] outline-none transition-colors hover:border-[#55101f] focus-visible:ring-2 focus-visible:ring-[#9c7650]" onClick={() => setSortOpen((open) => !open)} type="button">
+          <div className="relative" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setSortOpen(false); }}>
+            <button aria-expanded={sortOpen} aria-haspopup="listbox" aria-label={`Trier les produits : ${sortOptions.find((option) => option.value === sortMode)?.label}`} className="flex min-h-10 min-w-[172px] items-center justify-between gap-4 border border-[#bda984] bg-[#f6efe6] px-3 text-left text-[0.75rem] font-normal normal-case tracking-normal text-[#38141c] outline-none transition-colors hover:border-[#55101f] focus-visible:ring-2 focus-visible:ring-[#9c7650]" onClick={() => setSortOpen((open) => !open)} onKeyDown={(event) => { if (event.key === "Escape") setSortOpen(false); }} type="button">
               {sortOptions.find((option) => option.value === sortMode)?.label}
               <ChevronDown aria-hidden="true" className={`size-4 text-[#55101f] transition-transform ${sortOpen ? "rotate-180" : ""}`} />
             </button>
             {sortOpen && (
               <ul aria-label="Trier les produits" className="absolute right-0 top-[calc(100%+6px)] z-30 m-0 min-w-full list-none border border-[#bda984] bg-[#f6efe6] p-1 text-[#38141c] shadow-[0_14px_36px_rgba(56,20,28,0.18)]" role="listbox">
                 {sortOptions.map((option) => (
-                  <li aria-selected={sortMode === option.value} key={option.value} role="option">
-                    <button className="flex min-h-10 w-full items-center justify-between gap-4 px-3 text-left text-sm normal-case tracking-normal transition-colors hover:bg-[#55101f] hover:text-[#f6efe6]" onClick={() => { setSortMode(option.value); setSortOpen(false); }} type="button">
+                  <li key={option.value}>
+                    <button aria-selected={sortMode === option.value} className="flex min-h-10 w-full items-center justify-between gap-4 px-3 text-left text-sm normal-case tracking-normal transition-colors hover:bg-[#55101f] hover:text-[#f6efe6]" onClick={() => { setSortMode(option.value); setSortOpen(false); }} role="option" type="button">
                       {option.label}{sortMode === option.value && <Check aria-hidden="true" className="size-4" />}
                     </button>
                   </li>

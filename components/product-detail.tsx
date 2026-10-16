@@ -31,7 +31,7 @@ export default function ProductDetail({ product }: { product: SuitColor }) {
         </nav>
 
         <div className="grid gap-8 md:grid-cols-[minmax(0,1.35fr)_minmax(330px,0.75fr)] md:items-start md:gap-10 lg:gap-16">
-          <div className="relative aspect-[0.82] overflow-hidden bg-[#e9ded1] md:aspect-auto md:h-[min(76vh,850px)]">
+          <div className="relative aspect-[0.82] overflow-hidden bg-[#e9ded1] md:aspect-auto md:h-[min(110vh,1250px)]">
             <Image
               alt={`Le tailleur signature IMZA en coloris ${product.name.toLowerCase()}`}
               className="object-cover object-[center_22%]"
