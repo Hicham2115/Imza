@@ -23,12 +23,12 @@ export function PhilosophySection() {
       </picture>
 
       <div className="flex min-h-[620px] items-start px-6 pt-12 sm:min-h-[700px] sm:px-12 sm:pt-16 md:min-h-0 md:h-full md:items-center md:px-[6.5vw] md:pt-0">
-        <div className="max-w-[19rem] text-[#381c16] md:max-w-[32vw]">
+        <div className="max-w-[52vw] text-[#381c16] sm:max-w-[min(76vw,30rem)] md:max-w-[min(42vw,42rem)]">
           <p className="mb-4 text-[0.58rem] font-semibold uppercase tracking-[0.28em] text-[#684b39] sm:text-[0.64rem]">
             Notre philosophie
           </p>
           <h2
-            className="mb-0 max-w-[9ch] font-serif text-[clamp(2.1rem,5.5vw,3.5rem)] font-normal uppercase leading-[0.98] tracking-[-0.04em]"
+            className="mb-0 max-w-[9ch] font-serif text-[clamp(2.1rem,5.5vw,3.5rem)] font-normal uppercase leading-[0.98] tracking-[-0.04em] md:max-w-[16ch]"
             id="philosophy-title"
           >
             Plus qu’une garde-robe
@@ -37,7 +37,7 @@ export function PhilosophySection() {
             aria-hidden="true"
             className="mt-5 block h-px w-8 bg-[#805a42]"
           />
-          <p className="mb-0 mt-4 max-w-[17rem] font-serif text-[0.88rem] leading-[1.55] tracking-[0.04em] text-[#614a3b] sm:text-base">
+          <p className="mb-0 mt-4 max-w-[min(52vw,22rem)] font-serif text-[0.88rem] leading-[1.55] tracking-[0.04em] text-[#614a3b] sm:max-w-[26rem] sm:text-base">
             Des pièces qui vous accompagnent, pensées pour toutes les femmes que
             vous devenez.
           </p>

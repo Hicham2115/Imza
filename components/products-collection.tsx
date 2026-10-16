@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { Check, ChevronDown, Heart, ShoppingBag, SlidersHorizontal } from "lucide-react";
-import { suitColors } from "@/data/homepage";
+import { productSlug, suitColors } from "@/data/homepage";
 import { useCommerce } from "@/components/commerce-provider";
 
 const featuredOrder = ["Bordeaux", "Cacao", "Ivoire", "Bleu nuit", "Sauge", "Noir"];
@@ -19,7 +19,6 @@ export default function ProductsCollection() {
   const [activeColors, setActiveColors] = useState<string[]>([]);
   const [sortMode, setSortMode] = useState<SortMode>("featured");
   const [sortOpen, setSortOpen] = useState(false);
-  const [activeProduct, setActiveProduct] = useState("Bordeaux");
   const [notice, setNotice] = useState("");
   const { addToCart, cart, favorites, openPanel, toggleFavorite } = useCommerce();
   const sortOptions: { value: SortMode; label: string }[] = [
@@ -69,7 +68,8 @@ export default function ProductsCollection() {
           className="m-0 font-serif text-[clamp(2.4rem,5.3vw,4.8rem)] font-normal leading-[0.98] tracking-[-0.055em] text-[#55101f] max-sm:text-[clamp(2.3rem,10vw,3.3rem)]"
           id="products-title"
         >
-          Six couleurs. Une signature.
+          <span className="block">Six couleurs.</span>
+          <span className="block">Une signature.</span>
         </h1>
         <p className="mx-auto mb-0 mt-3 max-w-[40rem] text-[0.92rem] leading-[1.65] text-[#735c57] sm:text-base">
           Le tailleur IMZA, une coupe précise, des lignes intemporelles,
@@ -141,7 +141,6 @@ export default function ProductsCollection() {
 
       <ul className="mt-5 grid list-none grid-cols-2 gap-x-3 gap-y-7 p-0 sm:gap-x-4 sm:gap-y-10 min-[760px]:grid-cols-4 min-[760px]:gap-x-5 min-[760px]:gap-y-8">
         {products.map((product) => {
-          const isActive = activeProduct === product.name;
           const isFavorite = favorites.includes(product.name);
           const isInCart = cart.some((entry) => entry.product.name === product.name);
           const wideTile = product.name === "Sauge" || product.name === "Noir";
@@ -152,12 +151,8 @@ export default function ProductsCollection() {
               key={product.name}
             >
               <div className="relative">
-                <button
-                  aria-label={`Sélectionner le tailleur ${product.name}`}
-                  aria-pressed={isActive}
-                  className={`product-image-button relative block w-full overflow-hidden bg-[#eee7dc] text-left ${wideTile ? "aspect-[0.62] min-[760px]:aspect-[1.08]" : "aspect-[0.62]"}`}
-                  onClick={() => setActiveProduct(product.name)}
-                  type="button"
+                <div
+                  className={`relative block w-full overflow-hidden bg-[#eee7dc] ${wideTile ? "aspect-[0.62] min-[760px]:aspect-[1.08]" : "aspect-[0.62]"}`}
                 >
                   <Image
                     alt={`Le tailleur signature IMZA en coloris ${product.name.toLowerCase()}`}
@@ -167,7 +162,7 @@ export default function ProductsCollection() {
                     sizes={wideTile ? "(max-width: 760px) 48vw, 50vw" : "(max-width: 760px) 48vw, 25vw"}
                     src={product.image}
                   />
-                </button>
+                </div>
                 <button
                   aria-label={`Ajouter ${product.name} au panier`}
                   className={`store-button absolute right-12 top-2 z-10 flex size-9 items-center justify-center rounded-full backdrop-blur-sm sm:right-14 sm:top-3 ${isInCart ? "bg-[#55101f] text-[#f6efe6]" : "bg-[#f6efe6]/90 text-[#55101f]"}`}
@@ -191,13 +186,9 @@ export default function ProductsCollection() {
               </div>
 
               <div className="pt-2 text-center sm:pt-3">
-                <button
-                  className="font-serif text-[clamp(0.92rem,1.45vw,1.2rem)] leading-tight text-[#38141c]"
-                  onClick={() => setActiveProduct(product.name)}
-                  type="button"
-                >
+                <p className="m-0 font-serif text-[clamp(0.92rem,1.45vw,1.2rem)] leading-tight text-[#38141c]">
                   Le tailleur signature
-                </button>
+                </p>
                 <p className="mb-0 mt-1 text-[0.56rem] font-medium uppercase tracking-[0.17em] text-[#735c57] sm:text-[0.62rem]">
                   {product.name}
                 </p>
@@ -212,7 +203,7 @@ export default function ProductsCollection() {
                   ))}
                 </div>
                 <div className="mt-4 flex flex-col gap-2 min-[420px]:flex-row min-[420px]:justify-center">
-                  {isActive && <Link className="store-button inline-flex min-h-10 items-center justify-center gap-2 border border-[#55101f] px-4 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#55101f] no-underline hover:bg-[#efe5da] sm:text-[0.62rem]" href="/#contact">Voir le tailleur <span aria-hidden="true" className="text-base leading-none">→</span></Link>}
+                  <Link className="store-button inline-flex min-h-10 items-center justify-center border border-[#55101f] px-4 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#55101f] no-underline hover:bg-[#efe5da] sm:text-[0.62rem]" href={`/products/${productSlug(product.name)}`}>Voir le modèle</Link>
                   <button className="store-button inline-flex min-h-10 items-center justify-center gap-2 bg-[#55101f] px-4 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#f6efe6] hover:bg-[#43101c] sm:text-[0.62rem]" onClick={() => { addToCart(product); setNotice(`${product.name} ajouté au panier`); }} type="button"><ShoppingBag aria-hidden="true" className="size-4" />{isInCart ? "Ajouter une pièce" : "Ajouter au panier"}</button>
                 </div>
               </div>

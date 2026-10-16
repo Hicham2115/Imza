@@ -7,6 +7,14 @@ export const suitColors = [
   { name: "Bleu nuit", image: "/suits/navy.jpg", tone: "#17243a" },
 ];
 
+export function productSlug(name: string) {
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replaceAll(" ", "-");
+}
+
 export const brandValues = [
   "Confectionné avec soin",
   "Fabriqué au Maroc",
