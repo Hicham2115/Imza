@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Menu, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useCommerce } from "@/components/commerce-provider";
 
 const navigationLinks = [
   { href: "/products", label: "Collection" },
@@ -34,6 +35,8 @@ function BrandMark() {
 
 export default function Component() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { cart, favorites, openPanel } = useCommerce();
+  const cartCount = cart.reduce((total, entry) => total + entry.quantity, 0);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 max-sm:relative max-sm:mb-2" id="top">
@@ -93,8 +96,9 @@ export default function Component() {
         <div className="flex justify-end">
           <div className="flex items-center gap-2 max-md:gap-0">
             <Button
-              aria-label="Favoris"
-              className="store-button inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              aria-label={`Favoris${favorites.length ? `, ${favorites.length} articles` : ""}`}
+              className="store-button relative inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              onClick={() => openPanel("favorites")}
               size="icon"
               variant="link"
             >
@@ -102,10 +106,12 @@ export default function Component() {
                 aria-hidden="true"
                 className="size-[1.3rem] stroke-[1.4]"
               />
+              {favorites.length > 0 && <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#55101f] text-[0.58rem] leading-none text-[#f6efe6]">{favorites.length}</span>}
             </Button>
             <Button
-              aria-label="Panier"
-              className="store-button inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              aria-label={`Panier${cartCount ? `, ${cartCount} articles` : ""}`}
+              className="store-button relative inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              onClick={() => openPanel("cart")}
               size="icon"
               variant="link"
             >
@@ -113,6 +119,7 @@ export default function Component() {
                 aria-hidden="true"
                 className="size-[1.3rem] stroke-[1.4]"
               />
+              {cartCount > 0 && <span className="absolute -right-0.5 -top-0.5 flex size-4 items-center justify-center rounded-full bg-[#55101f] text-[0.58rem] leading-none text-[#f6efe6]">{cartCount}</span>}
             </Button>
           </div>
         </div>

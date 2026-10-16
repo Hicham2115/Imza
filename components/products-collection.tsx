@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Heart, SlidersHorizontal } from "lucide-react";
+import { Check, ChevronDown, Heart, ShoppingBag, SlidersHorizontal } from "lucide-react";
 import { suitColors } from "@/data/homepage";
+import { useCommerce } from "@/components/commerce-provider";
 
 const featuredOrder = ["Bordeaux", "Cacao", "Ivoire", "Bleu nuit", "Sauge", "Noir"];
 
@@ -15,14 +16,20 @@ const palette = [...suitColors].sort(
 type SortMode = "featured" | "alphabetical";
 
 export default function ProductsCollection() {
-  const [activeFilter, setActiveFilter] = useState("Toutes");
+  const [activeColors, setActiveColors] = useState<string[]>([]);
   const [sortMode, setSortMode] = useState<SortMode>("featured");
+  const [sortOpen, setSortOpen] = useState(false);
   const [activeProduct, setActiveProduct] = useState("Bordeaux");
-  const [favorites, setFavorites] = useState<string[]>([]);
+  const [notice, setNotice] = useState("");
+  const { addToCart, cart, favorites, openPanel, toggleFavorite } = useCommerce();
+  const sortOptions: { value: SortMode; label: string }[] = [
+    { value: "featured", label: "En vedette" },
+    { value: "alphabetical", label: "Ordre alphabétique" },
+  ];
 
   const products = useMemo(() => {
     const filtered = palette.filter(
-      (product) => activeFilter === "Toutes" || product.name === activeFilter,
+      (product) => activeColors.length === 0 || activeColors.includes(product.name),
     );
 
     if (sortMode === "alphabetical") {
@@ -30,10 +37,10 @@ export default function ProductsCollection() {
     }
 
     return filtered;
-  }, [activeFilter, sortMode]);
+  }, [activeColors, sortMode]);
 
-  function toggleFavorite(colorName: string) {
-    setFavorites((current) =>
+  function toggleColor(colorName: string) {
+    setActiveColors((current) =>
       current.includes(colorName)
         ? current.filter((color) => color !== colorName)
         : [...current, colorName],
@@ -74,27 +81,27 @@ export default function ProductsCollection() {
         <div className="flex min-w-0 items-center gap-3 overflow-hidden">
           <SlidersHorizontal aria-hidden="true" className="size-4 shrink-0 text-[#55101f]" strokeWidth={1.5} />
           <span className="shrink-0 text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#55101f] sm:text-[0.62rem]">Couleur</span>
-          <div aria-label="Filtrer par couleur" className="flex min-w-0 items-center gap-3 overflow-x-auto pb-1 sm:gap-4" role="group">
+          <div aria-label="Filtrer par couleur" className="product-filter-list flex min-w-0 items-center gap-3 overflow-x-auto pb-1 sm:gap-4" role="group">
             <button
-              aria-pressed={activeFilter === "Toutes"}
+              aria-pressed={activeColors.length === 0}
               className="product-filter"
-              onClick={() => setActiveFilter("Toutes")}
+              onClick={() => setActiveColors([])}
               type="button"
             >
-              <span aria-hidden="true" className={`product-filter__swatch bg-[#55101f] ${activeFilter === "Toutes" ? "product-filter__swatch--active" : ""}`} />
+              <span aria-hidden="true" className={`product-filter__swatch bg-[#55101f] ${activeColors.length === 0 ? "product-filter__swatch--active" : ""}`} />
               Toutes
             </button>
             {palette.map((color) => (
               <button
-                aria-pressed={activeFilter === color.name}
+                aria-pressed={activeColors.includes(color.name)}
                 className="product-filter"
                 key={color.name}
-                onClick={() => setActiveFilter(color.name)}
+                onClick={() => toggleColor(color.name)}
                 type="button"
               >
                 <span
                   aria-hidden="true"
-                  className={`product-filter__swatch ${activeFilter === color.name ? "product-filter__swatch--active" : ""}`}
+                  className={`product-filter__swatch ${activeColors.includes(color.name) ? "product-filter__swatch--active" : ""}`}
                   style={{ backgroundColor: color.tone }}
                 />
                 {color.name}
@@ -103,28 +110,40 @@ export default function ProductsCollection() {
           </div>
         </div>
 
-        <label className="flex shrink-0 items-center gap-3 self-end text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#55101f] md:self-auto sm:text-[0.62rem]">
-          Trier par
-          <select
-            aria-label="Trier les produits"
-            className="product-sort bg-transparent py-2 text-[0.72rem] font-normal normal-case tracking-normal text-[#38141c] outline-none"
-            onChange={(event) => setSortMode(event.target.value as SortMode)}
-            value={sortMode}
-          >
-            <option value="featured">En vedette</option>
-            <option value="alphabetical">Ordre alphabétique</option>
-          </select>
-        </label>
+        <div className="flex shrink-0 items-center justify-between gap-3 self-end text-[0.58rem] font-semibold uppercase tracking-[0.16em] text-[#55101f] sm:text-[0.62rem] md:self-auto">
+          <span aria-hidden="true" className="hidden h-6 w-px bg-[#c9b8a5] md:block" />
+          <span>Trier par</span>
+          <div className="relative">
+            <button aria-expanded={sortOpen} aria-haspopup="listbox" aria-label={`Trier les produits : ${sortOptions.find((option) => option.value === sortMode)?.label}`} className="flex min-h-10 min-w-[172px] items-center justify-between gap-4 border border-[#bda984] bg-[#f6efe6] px-3 text-left text-[0.75rem] font-normal normal-case tracking-normal text-[#38141c] outline-none transition-colors hover:border-[#55101f] focus-visible:ring-2 focus-visible:ring-[#9c7650]" onClick={() => setSortOpen((open) => !open)} type="button">
+              {sortOptions.find((option) => option.value === sortMode)?.label}
+              <ChevronDown aria-hidden="true" className={`size-4 text-[#55101f] transition-transform ${sortOpen ? "rotate-180" : ""}`} />
+            </button>
+            {sortOpen && (
+              <ul aria-label="Trier les produits" className="absolute right-0 top-[calc(100%+6px)] z-30 m-0 min-w-full list-none border border-[#bda984] bg-[#f6efe6] p-1 text-[#38141c] shadow-[0_14px_36px_rgba(56,20,28,0.18)]" role="listbox">
+                {sortOptions.map((option) => (
+                  <li aria-selected={sortMode === option.value} key={option.value} role="option">
+                    <button className="flex min-h-10 w-full items-center justify-between gap-4 px-3 text-left text-sm normal-case tracking-normal transition-colors hover:bg-[#55101f] hover:text-[#f6efe6]" onClick={() => { setSortMode(option.value); setSortOpen(false); }} type="button">
+                      {option.label}{sortMode === option.value && <Check aria-hidden="true" className="size-4" />}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
       </div>
 
-      <p aria-live="polite" className="sr-only">
-        {products.length} {products.length > 1 ? "coloris affichés" : "coloris affiché"}
-      </p>
+      <div aria-live="polite" className="flex min-h-10 items-center justify-between text-[0.68rem] text-[#735c57]">
+        <p className="m-0">{products.length} {products.length > 1 ? "coloris" : "coloris"}</p>
+        {activeColors.length > 0 && <button className="underline underline-offset-4 hover:text-[#55101f]" onClick={() => setActiveColors([])} type="button">Effacer les filtres</button>}
+      </div>
+      <p aria-live="polite" className="sr-only">{notice}</p>
 
       <ul className="mt-5 grid list-none grid-cols-2 gap-x-3 gap-y-7 p-0 sm:gap-x-4 sm:gap-y-10 min-[760px]:grid-cols-4 min-[760px]:gap-x-5 min-[760px]:gap-y-8">
         {products.map((product) => {
           const isActive = activeProduct === product.name;
           const isFavorite = favorites.includes(product.name);
+          const isInCart = cart.some((entry) => entry.product.name === product.name);
           const wideTile = product.name === "Sauge" || product.name === "Noir";
 
           return (
@@ -150,10 +169,21 @@ export default function ProductsCollection() {
                   />
                 </button>
                 <button
+                  aria-label={`Ajouter ${product.name} au panier`}
+                  className={`store-button absolute right-12 top-2 z-10 flex size-9 items-center justify-center rounded-full backdrop-blur-sm sm:right-14 sm:top-3 ${isInCart ? "bg-[#55101f] text-[#f6efe6]" : "bg-[#f6efe6]/90 text-[#55101f]"}`}
+                  onClick={() => {
+                    addToCart(product);
+                    openPanel("cart");
+                  }}
+                  type="button"
+                >
+                  <ShoppingBag aria-hidden="true" className="size-[17px]" strokeWidth={1.5} />
+                </button>
+                <button
                   aria-label={isFavorite ? `Retirer ${product.name} des favoris` : `Ajouter ${product.name} aux favoris`}
                   aria-pressed={isFavorite}
                   className="store-button absolute right-2 top-2 z-10 flex size-9 items-center justify-center rounded-full bg-[#f6efe6]/90 text-[#55101f] backdrop-blur-sm sm:right-3 sm:top-3"
-                  onClick={() => toggleFavorite(product.name)}
+                  onClick={() => toggleFavorite(product)}
                   type="button"
                 >
                   <Heart aria-hidden="true" className={`size-[18px] ${isFavorite ? "fill-current" : ""}`} strokeWidth={1.5} />
@@ -181,12 +211,10 @@ export default function ProductsCollection() {
                     />
                   ))}
                 </div>
-                {isActive && (
-                  <Link className="store-button mt-4 inline-flex min-h-10 items-center justify-center gap-3 bg-[#55101f] px-5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-[#f6efe6] no-underline hover:bg-[#43101c] sm:text-[0.62rem]" href="/#contact">
-                    Voir le tailleur
-                    <span aria-hidden="true" className="text-base leading-none">→</span>
-                  </Link>
-                )}
+                <div className="mt-4 flex flex-col gap-2 min-[420px]:flex-row min-[420px]:justify-center">
+                  {isActive && <Link className="store-button inline-flex min-h-10 items-center justify-center gap-2 border border-[#55101f] px-4 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#55101f] no-underline hover:bg-[#efe5da] sm:text-[0.62rem]" href="/#contact">Voir le tailleur <span aria-hidden="true" className="text-base leading-none">→</span></Link>}
+                  <button className="store-button inline-flex min-h-10 items-center justify-center gap-2 bg-[#55101f] px-4 text-[0.58rem] font-semibold uppercase tracking-[0.12em] text-[#f6efe6] hover:bg-[#43101c] sm:text-[0.62rem]" onClick={() => { addToCart(product); setNotice(`${product.name} ajouté au panier`); }} type="button"><ShoppingBag aria-hidden="true" className="size-4" />{isInCart ? "Ajouter une pièce" : "Ajouter au panier"}</button>
+                </div>
               </div>
             </li>
           );

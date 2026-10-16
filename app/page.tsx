@@ -9,6 +9,7 @@ import { BrandStorySection } from "@/components/brand-story-section";
 import { SignatureSuitCampaign } from "@/components/signature-suit-campaign";
 import { IvorySuitCampaign } from "@/components/ivory-suit-campaign";
 import Footer from "@/components/footer";
+import { PhilosophySection } from "@/components/philosophy-section";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
         <Reviews />
         <FAQ />
         <Contact />
+        <PhilosophySection />
       </main>
       <Footer />
     </>

@@ -184,6 +184,14 @@ body {
   transition: color 180ms ease;
 }
 
+.product-filter-list {
+  scrollbar-width: none;
+}
+
+.product-filter-list::-webkit-scrollbar {
+  display: none;
+}
+
 .product-filter:hover,
 .product-filter[aria-pressed="true"] {
   color: #55101f;

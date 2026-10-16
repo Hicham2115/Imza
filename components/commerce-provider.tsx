@@ -9,7 +9,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
+import { Heart, Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react";
 import { suitColors } from "@/data/homepage";
 
 type SuitColor = (typeof suitColors)[number];
@@ -101,6 +101,7 @@ export function CommerceProvider({ children }: { children: ReactNode }) {
 
 function CommercePanel() {
   const {
+    addToCart,
     cart,
     favorites,
     panel,
@@ -262,20 +263,8 @@ function CommercePanel() {
                       aria-label={`Ajouter ${product.name} au panier`}
                       className="store-button flex size-9 items-center justify-center bg-[#55101f] text-[#f6efe6] hover:bg-[#43101c]"
                       onClick={() => {
-                        const item = suitColors.find(
-                          (color) => color.name === product.name,
-                        );
-                        if (item) {
-                          const existing = cart.find(
-                            (entry) => entry.product.name === item.name,
-                          );
-                          if (existing) {
-                            changeQuantity(item.name, 1);
-                          } else {
-                            // The panel context exposes the same cart action via the product page.
-                            openPanel("cart");
-                          }
-                        }
+                        addToCart(product);
+                        openPanel("cart");
                       }}
                       type="button"
                     >
