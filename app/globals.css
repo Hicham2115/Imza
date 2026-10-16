@@ -72,6 +72,29 @@ body {
   color: var(--foreground);
 }
 
+.contact-paper {
+  background-color: #f5efe3;
+  background-image:
+    radial-gradient(ellipse at 22% 18%, rgb(255 255 255 / 48%), transparent 50%),
+    radial-gradient(ellipse at 80% 76%, rgb(203 174 129 / 10%), transparent 45%),
+    repeating-linear-gradient(0deg, rgb(104 76 45 / 2%) 0, rgb(104 76 45 / 2%) 1px, transparent 1px, transparent 4px);
+  background-size: auto, auto, 100% 4px;
+}
+
+.contact-script {
+  font-family: var(--font-script), "Apple Chancery", cursive;
+}
+
+.contact-stamps {
+  background-image:
+    linear-gradient(135deg, transparent 48%, rgb(85 16 31 / 14%) 49%, rgb(85 16 31 / 14%) 51%, transparent 52%),
+    linear-gradient(45deg, transparent 48%, rgb(156 118 80 / 18%) 49%, rgb(156 118 80 / 18%) 51%, transparent 52%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 52px 52px, 52px 52px;
+  mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent);
+}
+
 * {
   scrollbar-color: #55101f #f6efe6;
   scrollbar-width: thin;
@@ -175,6 +198,27 @@ a {
   font-family: Georgia, serif;
   font-size: 8rem;
   line-height: 1;
+}
+
+@media (max-width: 639px) {
+  .reviews-marquee {
+    padding-block: 0.35rem;
+  }
+
+  .reviews-marquee + .reviews-marquee {
+    margin-top: 0.45rem;
+  }
+
+  .reviews-marquee__group {
+    gap: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .review-card {
+    width: min(82vw, 340px);
+    min-height: 230px;
+    padding: 1.1rem;
+  }
 }
 
 @keyframes reviews-scroll {

@@ -23,10 +23,8 @@ export default function Home() {
         <BrandStorySection />
         <SignatureSuitCampaign />
         <IvorySuitCampaign />
-
-        <ServicesSection />
         <Reviews />
-        <JournalSection />
+        {/* <JournalSection /> */}
         <FAQ />
         <Contact />
       </main>

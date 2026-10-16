@@ -24,15 +24,15 @@ const scriptFont = Allura({
 });
 
 export const metadata: Metadata = {
-  title: "IMZA — The Signature Suit",
+  title: "IMZA — Le tailleur signature",
   description:
-    "Meet the IMZA signature suit: thoughtfully tailored in Morocco, in six expressions.",
+    "Découvrez le tailleur signature IMZA : confectionné avec soin au Maroc, décliné en six couleurs.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="fr"
       className={`${displayFont.variable} ${bodyFont.variable} ${scriptFont.variable}`}
     >
       <body>

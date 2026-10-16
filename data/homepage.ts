@@ -1,15 +1,15 @@
 export const suitColors = [
-  { name: "Burgundy", image: "/suits/burgundy.jpg", tone: "#651326" },
-  { name: "Black", image: "/suits/black.jpg", tone: "#181817" },
-  { name: "Ivory", image: "/suits/ivory.jpg", tone: "#e8ddca" },
-  { name: "Sage", image: "/suits/sage.jpg", tone: "#777b66" },
-  { name: "Cocoa", image: "/suits/cocoa.jpg", tone: "#654331" },
-  { name: "Navy", image: "/suits/navy.jpg", tone: "#17243a" },
+  { name: "Bordeaux", image: "/suits/burgundy.jpg", tone: "#651326" },
+  { name: "Noir", image: "/suits/black.jpg", tone: "#181817" },
+  { name: "Ivoire", image: "/suits/ivory.jpg", tone: "#e8ddca" },
+  { name: "Sauge", image: "/suits/sage.jpg", tone: "#777b66" },
+  { name: "Cacao", image: "/suits/cocoa.jpg", tone: "#654331" },
+  { name: "Bleu nuit", image: "/suits/navy.jpg", tone: "#17243a" },
 ];
 
 export const brandValues = [
-  "Thoughtfully tailored",
-  "Crafted in Morocco",
-  "Timeless essentials",
-  "A more confident you",
+  "Confectionné avec soin",
+  "Fabriqué au Maroc",
+  "Des essentiels intemporels",
+  "Plus de confiance en soi",
 ];

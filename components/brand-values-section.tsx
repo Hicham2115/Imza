@@ -5,7 +5,7 @@ const icons = [Scissors, Flower2, Gem, Feather];
 
 export function BrandValuesSection() {
   return (
-    <section aria-label="The IMZA difference" className="px-6 py-8 sm:px-10 lg:px-20">
+    <section aria-label="La différence IMZA" className="px-6 py-8 sm:px-10 lg:px-20">
       <ul className="mx-auto grid max-w-7xl grid-cols-2 list-none border-y border-[#d6c7b7] p-0 sm:grid-cols-4">
         {brandValues.map((label, index) => {
           const Icon = icons[index];

@@ -6,8 +6,8 @@ import { Heart, Menu, ShoppingBag, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navigationLinks = [
-  { href: "#signature-suit", label: "Shop" },
-  { href: "#our-story", label: "Our story" },
+  { href: "#signature-suit", label: "Collection" },
+  { href: "#our-story", label: "Notre histoire" },
   { href: "#journal", label: "Journal" },
 ];
 
@@ -16,7 +16,7 @@ function BrandMark() {
     <a
       className="inline-flex h-[3.9rem] w-48 items-center justify-center max-sm:h-[min(13vw,4.2rem)] max-sm:w-[min(38vw,13rem)]"
       href="#top"
-      aria-label="IMZA home"
+      aria-label="Accueil IMZA"
     >
       <Image
         alt=""
@@ -37,17 +37,17 @@ export default function Component() {
   return (
     <header className="absolute inset-x-0 top-0 z-50 max-sm:relative max-sm:mb-2" id="top">
       <div
-        aria-label="Complimentary delivery over 800 MAD · Crafted in Morocco · Made to feel like you"
+        aria-label="Livraison offerte dès 800 MAD · Confectionné au Maroc · Un style qui vous ressemble"
         className="flex h-8 items-center overflow-hidden bg-[#43101c] text-[0.66rem] font-medium tracking-[0.2em] text-[#f6efe6] max-sm:h-7 max-sm:text-[0.54rem] max-sm:tracking-[0.12em]"
       >
         <div aria-hidden="true" className="flex w-max animate-[announcement-scroll_24s_linear_infinite] motion-reduce:animate-none">
           {[0, 1, 2].map((copy) => (
             <div className="flex shrink-0 items-center" key={copy}>
-              <span className="px-8">COMPLIMENTARY DELIVERY OVER 800 MAD</span>
+              <span className="px-8">LIVRAISON OFFERTE DÈS 800 MAD</span>
               <span className="text-[#d9b7a0]" aria-hidden="true">✦</span>
-              <span className="px-8">CRAFTED WITH CARE IN MOROCCO</span>
+              <span className="px-8">CONFECTIONNÉ AVEC SOIN AU MAROC</span>
               <span className="text-[#d9b7a0]" aria-hidden="true">✦</span>
-              <span className="px-8">SIX EXPRESSIONS. ALWAYS YOU.</span>
+              <span className="px-8">SIX COULEURS. TOUJOURS VOUS.</span>
               <span className="px-8 text-[#d9b7a0]" aria-hidden="true">✦</span>
             </div>
           ))}
@@ -58,7 +58,7 @@ export default function Component() {
           <Button
             aria-expanded={menuOpen}
             aria-label={
-              menuOpen ? "Close navigation menu" : "Open navigation menu"
+              menuOpen ? "Fermer le menu" : "Ouvrir le menu"
             }
             className="mr-2 size-11 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da] hover:text-[#8b3544] md:hidden"
             onClick={() => setMenuOpen((open) => !open)}
@@ -69,7 +69,7 @@ export default function Component() {
           </Button>
           <nav
             className="flex items-center gap-[clamp(0.8rem,2.5vw,2.75rem)] max-md:hidden"
-            aria-label="Main navigation"
+            aria-label="Navigation principale"
           >
             {navigationLinks.map((link) => (
               <a
@@ -92,7 +92,7 @@ export default function Component() {
         <div className="flex justify-end">
           <div className="flex items-center gap-2 max-md:gap-0">
             <Button
-              aria-label="Favorites"
+              aria-label="Favoris"
               className="inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
               size="icon"
               variant="link"
@@ -103,7 +103,7 @@ export default function Component() {
               />
             </Button>
             <Button
-              aria-label="Shopping bag"
+              aria-label="Panier"
               className="inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
               size="icon"
               variant="link"
@@ -125,15 +125,15 @@ export default function Component() {
           role="presentation"
         >
           <nav
-            aria-label="Mobile navigation"
+            aria-label="Navigation mobile"
             className="absolute inset-x-0 bottom-0 top-[6.25rem] overflow-y-auto bg-[#f6efe6] px-6 pb-10 pt-5 text-primary shadow-xl"
           >
             <div className="mb-4 flex items-center justify-between border-b border-primary/15 pb-4">
               <p className="m-0 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-primary/60">
-                Explore IMZA
+                Découvrir IMZA
               </p>
               <Button
-                aria-label="Close navigation menu"
+                aria-label="Fermer le menu"
                 className="size-10 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da]"
                 onClick={() => setMenuOpen(false)}
                 size="icon"

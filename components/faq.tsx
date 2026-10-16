@@ -2,23 +2,23 @@ import { ArrowDownRight, Plus } from "lucide-react";
 
 const questions = [
   {
-    question: "Where is the IMZA suit made?",
+    question: "Où le tailleur IMZA est-il confectionné ?",
     answer:
-      "Each signature suit is thoughtfully tailored in Morocco, with care given to the details that shape its clean, confident silhouette.",
+      "Chaque tailleur signature est confectionné avec soin au Maroc. Une attention particulière est portée aux détails qui dessinent sa silhouette épurée et affirmée.",
   },
   {
-    question: "What are the six expressions?",
+    question: "Quelles sont les six couleurs proposées ?",
     answer:
-      "The signature silhouette comes in six considered colors. Explore the collection to find the expression that feels most like you.",
+      "La silhouette signature se décline en six couleurs choisies avec soin. Découvrez la collection et trouvez celle qui vous ressemble.",
   },
   {
-    question: "Is delivery complimentary?",
-    answer: "Orders over 800 MAD qualify for complimentary delivery.",
+    question: "La livraison est-elle offerte ?",
+    answer: "La livraison est offerte pour toute commande supérieure à 800 MAD.",
   },
   {
-    question: "How should I care for my suit?",
+    question: "Comment prendre soin de mon tailleur ?",
     answer:
-      "For the best care, follow the instructions on the garment label and use a trusted professional cleaner when needed.",
+      "Pour préserver votre tailleur, suivez les conseils d’entretien figurant sur l’étiquette et confiez-le à un professionnel si nécessaire.",
   },
 ];
 
@@ -33,24 +33,24 @@ export default function FAQ() {
         <div className="max-w-[27rem]">
           <p className="m-0 flex items-center gap-3 text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">
             <span aria-hidden="true" className="h-px w-8 bg-primary" />
-            A few details
+            Quelques précisions
           </p>
           <h2
             className="mb-0 mt-5 font-serif text-[clamp(3.3rem,6vw,5.7rem)] font-normal leading-[0.92] tracking-[-0.06em] text-primary max-sm:mt-3 max-sm:text-[clamp(3.15rem,13vw,4.5rem)]"
             id="faq-title"
           >
-            Good to
+            Bon à
             <br />
-            know.
+            savoir.
           </h2>
           <p className="mb-0 mt-5 max-w-[22rem] text-[0.88rem] leading-[1.75] tracking-[0.02em] text-muted-foreground max-sm:mt-4 max-sm:text-[0.84rem]">
-            Thoughtful answers to help you choose your signature.
+            Les réponses à vos questions pour choisir votre signature.
           </p>
           <a
             className="mt-7 inline-flex items-center gap-3 text-[0.66rem] font-bold uppercase tracking-[0.17em] text-primary no-underline transition-opacity hover:opacity-70 focus-visible:outline-offset-4 max-sm:mt-5"
             href="#signature-suit"
           >
-            Explore the collection
+            Découvrez la collection
             <ArrowDownRight aria-hidden="true" className="size-4 stroke-[1.5]" />
           </a>
         </div>
