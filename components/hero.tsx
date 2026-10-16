@@ -43,7 +43,7 @@ export default function Hero() {
           Toujours vous.
         </p>
         <a
-          className="relative z-20 mt-8 inline-flex min-h-[3.6rem] w-[20rem] items-center justify-between gap-2 bg-[#55101f] px-6 text-[0.68rem] font-bold uppercase tracking-[0.16em] !text-[#f6efe6] no-underline transition-colors hover:bg-[#43101c] max-sm:mt-5 max-sm:min-h-[clamp(3.4rem,14vw,4.75rem)] max-sm:w-full max-sm:gap-2 max-sm:px-[6vw] max-sm:text-[clamp(0.68rem,2.8vw,0.9rem)] max-sm:tracking-[0.18em]"
+          className="store-button relative z-20 mt-8 inline-flex min-h-[3.6rem] w-[20rem] items-center justify-between gap-2 bg-[#55101f] px-6 text-[0.68rem] font-bold uppercase tracking-[0.16em] !text-[#f6efe6] no-underline hover:bg-[#43101c] max-sm:mt-5 max-sm:min-h-[clamp(3.4rem,14vw,4.75rem)] max-sm:w-full max-sm:gap-2 max-sm:px-[4vw] max-sm:text-[clamp(0.58rem,2.8vw,0.9rem)] max-sm:tracking-[0.11em]"
           href="#signature-suit"
         >
           <span className="block whitespace-nowrap">

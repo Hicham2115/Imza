@@ -60,7 +60,7 @@ export default function Component() {
             aria-label={
               menuOpen ? "Fermer le menu" : "Ouvrir le menu"
             }
-            className="mr-2 size-11 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da] hover:text-[#8b3544] md:hidden"
+            className="store-button mr-2 size-11 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da] hover:text-[#8b3544] md:hidden"
             onClick={() => setMenuOpen((open) => !open)}
             size="icon"
             variant="ghost"
@@ -93,7 +93,7 @@ export default function Component() {
           <div className="flex items-center gap-2 max-md:gap-0">
             <Button
               aria-label="Favoris"
-              className="inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              className="store-button inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
               size="icon"
               variant="link"
             >
@@ -104,7 +104,7 @@ export default function Component() {
             </Button>
             <Button
               aria-label="Panier"
-              className="inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
+              className="store-button inline-flex size-10 items-center justify-center rounded-full bg-transparent p-0 text-primary max-md:size-9"
               size="icon"
               variant="link"
             >
@@ -134,7 +134,7 @@ export default function Component() {
               </p>
               <Button
                 aria-label="Fermer le menu"
-                className="size-10 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da]"
+                className="store-button size-10 rounded-full bg-transparent p-0 text-primary hover:bg-[#efe5da]"
                 onClick={() => setMenuOpen(false)}
                 size="icon"
                 variant="ghost"

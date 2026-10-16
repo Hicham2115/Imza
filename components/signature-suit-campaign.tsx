@@ -22,13 +22,13 @@ export function SignatureSuitCampaign() {
             <span aria-hidden="true" className="h-px w-9 bg-[#c9a15b]" />
             La signature IMZA
           </p>
-          <h2 id="signature-campaign-title" className="mt-8 max-w-[13ch] font-serif text-[clamp(3.8rem,6.5vw,6.7rem)] leading-[0.86] tracking-[-0.06em] text-[#fbf6ed] max-sm:text-[clamp(3.4rem,12vw,4.8rem)]">
+          <h2 id="signature-campaign-title" className="mt-8 max-w-[9ch] font-serif text-[clamp(3.8rem,6.5vw,6.7rem)] leading-[0.86] tracking-[-0.06em] text-[#fbf6ed] max-sm:text-[clamp(3.4rem,12vw,4.8rem)]">
             Un tailleur<br />qui vous <em className="font-normal text-[#e6c38c]">ressemble.</em>
           </h2>
           <p className="mt-8 max-w-[31rem] font-serif text-[clamp(1.05rem,1.4vw,1.25rem)] leading-[1.65] text-[#f5e9db]/90 max-sm:mt-6">
             Confectionné avec soin au Maroc. Six couleurs choisies avec attention. Une silhouette affirmée, pensée pour vous accompagner partout.
           </p>
-          <a href="#signature-suit" className="group mt-10 inline-flex min-h-16 items-center justify-between gap-10 border border-[#e6c38c]/80 px-7 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#fbf6ed] no-underline transition-colors hover:bg-[#f6efe6] hover:text-[#38141c] focus-visible:outline-offset-4 max-sm:mt-7 max-sm:min-h-14 max-sm:gap-6 max-sm:px-5">
+          <a href="#signature-suit" className="store-button group mt-10 inline-flex min-h-16 items-center justify-between gap-10 border border-[#e6c38c]/80 px-7 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#fbf6ed] no-underline hover:bg-[#f6efe6] hover:text-[#38141c] max-sm:mt-7 max-sm:min-h-14 max-sm:gap-6 max-sm:px-5">
             Découvrez le tailleur signature
             <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
           </a>

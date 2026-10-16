@@ -60,7 +60,7 @@ export default function Contact() {
       >
         <div className="flex flex-col px-7 py-10 sm:px-12 sm:py-12 lg:min-h-[820px] lg:justify-between lg:px-[8%] lg:py-14">
           <div className="mx-auto w-full max-w-[900px] text-center lg:mt-10">
-            <p className="contact-script relative z-10 mx-auto w-full whitespace-nowrap text-[clamp(2.55rem,4.5vw,5rem)] leading-none tracking-[-0.035em] text-[#9c7650]">
+            <p className="contact-script relative z-10 mx-auto w-full whitespace-nowrap text-[clamp(1.8rem,4.5vw,5rem)] leading-none tracking-[-0.035em] text-[#9c7650]">
               Un mot pour la Maison
             </p>
             <h2
@@ -152,7 +152,7 @@ export default function Contact() {
               <textarea className="contact-form-field mt-2 min-h-[90px] w-full resize-y rounded-t-[0.45rem] border border-[#9c7650]/40 border-b-[#9c7650] bg-white/25 px-[0.85rem] py-3 font-sans text-base text-[#38141c] outline-none" id="message" maxLength={1200} name="message" required rows={2} />
             </div>
             <div className="flex flex-col gap-3 pt-2 sm:items-end">
-              <button className="inline-flex h-[52px] items-center justify-center self-end rounded-[12px] border border-[#55101f] bg-transparent px-8 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#55101f] transition-colors hover:bg-[#55101f] hover:text-[#f6efe6] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#9c7650]" type="submit">
+              <button className="store-button inline-flex h-[52px] items-center justify-center self-end rounded-[12px] border border-[#55101f] bg-transparent px-8 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#55101f] hover:bg-[#55101f] hover:text-[#f6efe6]" type="submit">
                 Envoyer le message
               </button>
               <p aria-live="polite" className="m-0 text-right font-sans text-[11px] text-[#735c57]">

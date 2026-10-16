@@ -5,13 +5,19 @@ export function BrandStorySection() {
   return (
     <section id="our-story" aria-labelledby="story-title" className="bg-[#f6efe6] text-primary md:grid md:min-h-[680px] md:grid-cols-[1.08fr_0.92fr]">
       <div className="relative min-h-[460px] overflow-hidden md:min-h-[680px]">
-        <Image
-          alt="Une femme portant le tailleur bordeaux IMZA, confectionné au Maroc"
-          className="object-cover object-[65%_center] transition-transform duration-700 hover:scale-[1.015]"
-          fill
-          sizes="(max-width: 768px) 100vw, 54vw"
-          src="/imza-hero.png"
-        />
+        <picture className="absolute inset-0">
+          <source
+            media="(max-width: 767px)"
+            srcSet="/imza-story-mobile.png"
+          />
+          <Image
+            alt="Une femme portant le tailleur bordeaux IMZA, confectionné au Maroc"
+            className="object-cover object-[65%_center] transition-transform duration-700 hover:scale-[1.015]"
+            fill
+            sizes="(max-width: 767px) 100vw, 54vw"
+            src="/imza-story-desktop.png"
+          />
+        </picture>
         <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#210b10]/55 to-transparent" />
         <p className="absolute bottom-6 left-6 m-0 text-[0.6rem] font-semibold uppercase tracking-[0.22em] text-[#f6efe6]/90 sm:bottom-8 sm:left-8">
           IMZA · Confectionné au Maroc
@@ -41,7 +47,7 @@ export function BrandStorySection() {
             </p>
           </div>
 
-          <a href="#services" className="group relative mt-8 inline-flex min-h-11 items-center gap-4 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-primary no-underline focus-visible:outline-offset-4">
+          <a href="#services" className="store-button group relative mt-8 inline-flex min-h-11 items-center gap-4 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-primary no-underline">
             Découvrez notre approche
             <ArrowRight aria-hidden="true" className="size-4 text-[#e6c38c] transition-transform duration-300 group-hover:translate-x-1" />
             <span aria-hidden="true" className="absolute bottom-0 left-0 h-px w-48 origin-left scale-x-50 bg-[#c9a15b] transition-transform duration-300 group-hover:scale-x-100" />

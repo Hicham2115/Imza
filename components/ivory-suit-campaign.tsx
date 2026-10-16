@@ -27,7 +27,7 @@ export function IvorySuitCampaign() {
           <p className="ml-auto mt-8 max-w-[31rem] font-serif text-[clamp(1.05rem,1.4vw,1.25rem)] leading-[1.65] text-[#f5e9db]/90 max-sm:mt-6">
             Une interprétation plus douce du tailleur signature. Des lignes épurées, des détails soignés et une assurance naturelle qui s’accorde à tout.
           </p>
-          <a href="#signature-suit" className="group ml-auto mt-10 inline-flex min-h-16 items-center justify-between gap-10 border border-[#e6c38c]/80 px-7 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#fbf6ed] no-underline transition-colors hover:bg-[#f6efe6] hover:text-[#38141c] focus-visible:outline-offset-4 max-sm:mt-7 max-sm:min-h-14 max-sm:gap-6 max-sm:px-5">
+          <a href="#signature-suit" className="store-button group ml-auto mt-10 inline-flex min-h-16 items-center justify-between gap-6 border border-[#e6c38c]/80 px-7 text-[0.68rem] font-semibold uppercase tracking-[0.18em] text-[#fbf6ed] no-underline hover:bg-[#f6efe6] hover:text-[#38141c] max-sm:mt-7 max-sm:min-h-14 max-sm:gap-4 max-sm:px-5">
             Découvrez le tailleur ivoire
             <ArrowRight aria-hidden="true" className="size-4 transition-transform group-hover:translate-x-1" />
           </a>

@@ -1,4 +1,4 @@
-import { ArrowDownRight, Plus } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 
 const questions = [
   {
@@ -47,11 +47,11 @@ export default function FAQ() {
             Les réponses à vos questions pour choisir votre signature.
           </p>
           <a
-            className="mt-7 inline-flex items-center gap-3 text-[0.66rem] font-bold uppercase tracking-[0.17em] text-primary no-underline transition-opacity hover:opacity-70 focus-visible:outline-offset-4 max-sm:mt-5"
+            className="store-button mt-7 inline-flex items-center gap-3 text-[0.66rem] font-bold uppercase tracking-[0.17em] text-primary no-underline hover:opacity-70 max-sm:mt-5"
             href="#signature-suit"
           >
             Découvrez la collection
-            <ArrowDownRight aria-hidden="true" className="size-4 stroke-[1.5]" />
+            <ArrowUpRight aria-hidden="true" className="size-4 stroke-[1.5]" />
           </a>
         </div>
 
