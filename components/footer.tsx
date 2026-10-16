@@ -1,3 +1,5 @@
+import { CurrentYear } from "@/components/CurrentYear";
+
 const footerGroups = [
   {
     title: "La collection",
@@ -17,31 +19,51 @@ const footerGroups = [
       { label: "Nous contacter", href: "#contact" },
     ],
   },
+  {
+    title: "À votre écoute",
+    links: [
+      { label: "Questions fréquentes", href: "#faq" },
+      { label: "Conseil personnalisé", href: "#contact" },
+      { label: "Taille et coupe", href: "#contact" },
+      { label: "Nous contacter", href: "mailto:hello@imza.ma" },
+    ],
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="overflow-hidden bg-[#38141c] px-6 pb-5 pt-16 text-[#f6efe6] sm:px-[5.5%] sm:pt-20 lg:pt-24">
+    <footer className="mt-10 overflow-hidden bg-[#4f101c] px-6 pb-4 pt-10 text-[#f6efe6] sm:mt-12 sm:px-[5.5%] sm:pt-12 lg:mt-16 lg:pt-14">
       <div className="mx-auto max-w-[1480px]">
-        <div className="grid gap-12 border-b border-[#f6efe6]/20 pb-12 sm:grid-cols-2 lg:grid-cols-[1.35fr_1fr_1fr] lg:gap-16 lg:pb-16">
-          <div className="max-w-[430px]">
-            <a aria-label="IMZA, retour en haut de page" className="font-serif text-[clamp(2.6rem,5vw,4.5rem)] leading-[0.98] tracking-[-0.045em]" href="#top">
-              Le style qui vous ressemble.
+        <div className="mb-10 border-t border-[#c8a46d]/50 sm:mb-14" />
+        <div className="grid gap-10 border-b border-[#f6efe6]/20 pb-10 sm:grid-cols-2 lg:grid-cols-[1.55fr_repeat(3,1fr)] lg:gap-12 lg:pb-12">
+          <div className="max-w-[470px] lg:pr-8">
+            <p className="mb-5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#c8a46d]">
+              L’univers IMZA
+            </p>
+            <a
+              aria-label="IMZA, retour en haut de page"
+              className="footer-link font-serif text-[clamp(2.7rem,4.3vw,4.2rem)] leading-[0.98] tracking-[-0.045em]"
+              href="#top"
+            >
+              L’élégance au quotidien. Un tailleur à garder.
             </a>
-            <p className="mb-0 mt-6 max-w-[340px] font-serif text-lg leading-relaxed text-[#f6efe6]/65">
-              Des pièces pensées avec soin, confectionnées au Maroc et faites pour vous accompagner.
+            <p className="mb-0 mt-6 max-w-[360px] font-serif text-lg leading-relaxed text-[#f6efe6]/65">
+              Confectionné avec soin au Maroc, pensé pour les moments qui vous ressemblent.
             </p>
           </div>
 
           {footerGroups.map((group) => (
             <nav aria-label={group.title} key={group.title}>
-              <h2 className="m-0 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[#c8a46d]">
+              <h2 className="m-0 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#c8a46d]">
                 {group.title}
               </h2>
-              <ul className="m-0 mt-5 grid list-none gap-4 p-0">
+              <ul className="m-0 mt-6 grid list-none gap-4 p-0">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a className="font-serif text-base text-[#f6efe6]/75 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c8a46d]" href={link.href}>
+                    <a
+                      className="footer-link footer-nav-link font-serif text-base text-[#f6efe6]/75 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c8a46d]"
+                      href={link.href}
+                    >
                       {link.label}
                     </a>
                   </li>
@@ -51,22 +73,35 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-5 py-6 text-xs text-[#f6efe6]/55 sm:flex-row sm:items-center sm:justify-between">
-          <p className="m-0">© 2026 IMZA. Tous droits réservés.</p>
-          <a className="transition-colors hover:text-[#c8a46d]" href="mailto:hello@yourbrand.com">
-            hello@yourbrand.com
+        <div className="flex flex-col gap-4 border-b border-[#f6efe6]/20 py-5 text-xs text-[#f6efe6]/55 sm:flex-row sm:items-center sm:justify-between">
+          <p className="m-0">
+            © <CurrentYear /> IMZA. Tous droits réservés.
+          </p>
+          <a
+            className="footer-link transition-colors hover:text-[#c8a46d]"
+            href="mailto:hello@imza.ma"
+          >
+            hello@imza.ma
           </a>
-          <a className="font-semibold uppercase tracking-[0.16em] text-[#c8a46d] hover:text-[#f6efe6]" href="#top">
+          <a
+            className="footer-link font-semibold uppercase tracking-[0.16em] text-[#c8a46d] hover:text-[#f6efe6]"
+            href="#top"
+          >
             Retour en haut <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <p aria-hidden="true" className="-mb-[0.12em] select-none whitespace-nowrap text-center font-serif text-[clamp(7rem,27vw,28rem)] font-medium leading-[0.72] tracking-[-0.09em] text-[#f6efe6]/[0.055]">
-          IMZA
-        </p>
       </div>
-      <p className="mb-0 mt-5 text-center font-serif text-xs text-[#f6efe6]/55">
-        Conçu et développé par Stallion Advertising
+      <p className="mx-auto mb-0 mt-4 max-w-[1320px] px-4 py-3 text-center text-[11px] text-white/70">
+        Designed &amp; developed by{" "}
+        <a
+          href="https://www.stallionadvertising.ma/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer-link footer-nav-link underline decoration-transparent underline-offset-2 transition-colors duration-200 hover:text-white hover:decoration-white"
+        >
+          Stallion Advertising
+        </a>
       </p>
     </footer>
   );

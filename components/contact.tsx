@@ -60,7 +60,7 @@ export default function Contact() {
       >
         <div className="flex flex-col px-7 py-10 sm:px-12 sm:py-12 lg:min-h-[820px] lg:justify-between lg:px-[8%] lg:py-14">
           <div className="mx-auto w-full max-w-[900px] text-center lg:mt-10">
-            <p className="contact-script relative z-10 mx-auto w-full whitespace-nowrap text-[clamp(2.35rem,4vw,4.5rem)] leading-none tracking-[-0.035em] text-[#9c7650]">
+            <p className="contact-script relative z-10 mx-auto w-full whitespace-nowrap text-[clamp(2.55rem,4.5vw,5rem)] leading-none tracking-[-0.035em] text-[#9c7650]">
               Un mot pour la Maison
             </p>
             <h2
