@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 
 export function JournalSection() {
   return (
-    <section className="bg-[#55101f] px-6 py-20 text-[#f6efe6] sm:px-10 lg:px-20">
+    <section id="journal" className="bg-[#55101f] px-6 py-20 text-[#f6efe6] sm:px-10 lg:px-20">
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 md:flex-row md:items-end">
         <div>
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#dfc3a9]">Le journal IMZA</p>

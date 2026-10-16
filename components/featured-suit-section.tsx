@@ -10,7 +10,7 @@ export function FeaturedSuitSection() {
             <p className="text-[0.65rem] font-semibold uppercase tracking-[0.24em] text-[#8b7167]">La collection signature</p>
             <h2 id="collection-title" className="mt-3 font-serif text-[clamp(3.2rem,7vw,6rem)] leading-[0.94] tracking-[-0.05em]">Six couleurs.</h2>
           </div>
-          <p className="max-w-sm pb-1 text-sm leading-7 text-[#735c57] max-sm:mt-4">Une silhouette pensée avec soin, confectionnée au Maroc et faite pour vous ressembler.</p>
+          <p className="max-w-sm pb-1 text-sm leading-7 text-[#4d3432] max-sm:mt-4">Une silhouette pensée avec soin, confectionnée au Maroc et faite pour vous ressembler.</p>
         </div>
         <ul className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6 lg:gap-4">
           {suitColors.map((color) => (

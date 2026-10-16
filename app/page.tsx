@@ -6,8 +6,6 @@ import Contact from "@/components/contact";
 import { BrandValuesSection } from "@/components/brand-values-section";
 import { FeaturedSuitSection } from "@/components/featured-suit-section";
 import { BrandStorySection } from "@/components/brand-story-section";
-import { ServicesSection } from "@/components/services-section";
-import { JournalSection } from "@/components/journal-section";
 import { SignatureSuitCampaign } from "@/components/signature-suit-campaign";
 import { IvorySuitCampaign } from "@/components/ivory-suit-campaign";
 import Footer from "@/components/footer";
@@ -25,7 +23,6 @@ export default function Home() {
         <SignatureSuitCampaign />
         <IvorySuitCampaign />
         <Reviews />
-        {/* <JournalSection /> */}
         <FAQ />
         <Contact />
       </main>

@@ -1,30 +1,31 @@
 import { CurrentYear } from "@/components/CurrentYear";
+import Link from "next/link";
 
 const footerGroups = [
   {
     title: "La collection",
     links: [
-      { label: "Le tailleur signature", href: "#signature-suit" },
-      { label: "Nos six couleurs", href: "#signature-suit" },
-      { label: "Notre approche", href: "#our-story" },
-      { label: "Questions fréquentes", href: "#faq" },
+      { label: "Le tailleur signature", href: "/#signature-suit" },
+      { label: "Nos six couleurs", href: "/#signature-suit" },
+      { label: "Notre approche", href: "/#our-story" },
+      { label: "Questions fréquentes", href: "/#faq" },
     ],
   },
   {
     title: "La Maison",
     links: [
-      { label: "Notre histoire", href: "#our-story" },
-      { label: "Confection au Maroc", href: "#services" },
-      { label: "Les avis de la communauté", href: "#reviews" },
-      { label: "Nous contacter", href: "#contact" },
+      { label: "Notre histoire", href: "/#our-story" },
+      { label: "Confection au Maroc", href: "/#our-story" },
+      { label: "Les avis de la communauté", href: "/#reviews" },
+      { label: "Nous contacter", href: "/#contact" },
     ],
   },
   {
     title: "À votre écoute",
     links: [
-      { label: "Questions fréquentes", href: "#faq" },
-      { label: "Conseil personnalisé", href: "#contact" },
-      { label: "Taille et coupe", href: "#contact" },
+      { label: "Questions fréquentes", href: "/#faq" },
+      { label: "Conseil personnalisé", href: "/#contact" },
+      { label: "Taille et coupe", href: "/#contact" },
       { label: "Nous contacter", href: "mailto:hello@imza.ma" },
     ],
   },
@@ -40,14 +41,14 @@ export default function Footer() {
             <p className="mb-5 text-[0.62rem] font-semibold uppercase tracking-[0.2em] text-[#c8a46d]">
               L’univers IMZA
             </p>
-            <a
+            <Link
               aria-label="IMZA, retour en haut de page"
               className="footer-link font-serif text-[clamp(2.7rem,4.3vw,4.2rem)] leading-[0.98] tracking-[-0.045em]"
-              href="#top"
+              href="/#top"
             >
               L’élégance au quotidien. Un tailleur à garder.
-            </a>
-            <p className="mb-0 mt-6 max-w-[360px] font-serif text-lg leading-relaxed text-[#f6efe6]/65">
+            </Link>
+            <p className="mb-0 mt-6 max-w-[360px] font-serif text-lg leading-relaxed text-[#f6efe6]/85">
               Confectionné avec soin au Maroc, pensé pour les moments qui vous ressemblent.
             </p>
           </div>
@@ -60,12 +61,12 @@ export default function Footer() {
               <ul className="m-0 mt-6 grid list-none gap-4 p-0">
                 {group.links.map((link) => (
                   <li key={link.label}>
-                    <a
-                      className="footer-link footer-nav-link font-serif text-base text-[#f6efe6]/75 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c8a46d]"
+                    <Link
+                      className="footer-link footer-nav-link font-serif text-base text-[#f6efe6]/90 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#c8a46d]"
                       href={link.href}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -73,7 +74,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-4 border-b border-[#f6efe6]/20 py-5 text-xs text-[#f6efe6]/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-b border-[#f6efe6]/20 py-5 text-xs text-[#f6efe6]/75 sm:flex-row sm:items-center sm:justify-between">
           <p className="m-0">
             © <CurrentYear /> IMZA. Tous droits réservés.
           </p>
@@ -83,16 +84,16 @@ export default function Footer() {
           >
             hello@imza.ma
           </a>
-          <a
+          <Link
             className="footer-link font-semibold uppercase tracking-[0.16em] text-[#c8a46d] hover:text-[#f6efe6]"
-            href="#top"
+            href="/#top"
           >
             Retour en haut <span aria-hidden="true">↗</span>
-          </a>
+          </Link>
         </div>
 
       </div>
-      <p className="mx-auto mb-0 mt-4 max-w-[1320px] px-4 py-3 text-center text-[11px] text-white/70">
+      <p className="mx-auto mb-0 mt-4 max-w-[1320px] px-4 py-3 text-center text-[11px] text-white/90">
         Designed &amp; developed by{" "}
         <a
           href="https://www.stallionadvertising.ma/"

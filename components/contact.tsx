@@ -69,7 +69,7 @@ export default function Contact() {
             >
               Nous serions ravis d’échanger avec vous.
             </h2>
-            <p className="mx-auto mt-7 max-w-[620px] text-[0.92rem] leading-[1.8] text-[#735c57] sm:text-base">
+            <p className="mx-auto mt-7 max-w-[620px] text-[0.92rem] leading-[1.8] text-[#4d3432] sm:text-base">
               Chaque création a son histoire. Pour trouver la coupe idéale,
               choisir votre tailleur signature ou préparer une attention
               particulière, notre équipe est là pour vous guider.
@@ -90,7 +90,7 @@ export default function Contact() {
                     <span className="block text-[10px] font-semibold uppercase tracking-[0.12em] text-[#55101f]">
                       {title}
                     </span>
-                    <span className="mt-1 block font-serif text-[13px] leading-snug text-[#735c57]">
+                    <span className="mt-1 block font-serif text-[13px] leading-snug text-[#4d3432]">
                       {detail}
                     </span>
                   </span>
@@ -102,7 +102,7 @@ export default function Contact() {
             <p className="m-0 text-[0.62rem] font-semibold uppercase tracking-[0.22em] text-[#9c7650]">
               La promesse IMZA
             </p>
-            <p className="mb-0 mt-3 font-serif text-[clamp(1.2rem,1.8vw,1.65rem)] italic leading-snug text-[#735c57]">
+            <p className="mb-0 mt-3 font-serif text-[clamp(1.2rem,1.8vw,1.65rem)] italic leading-snug text-[#4d3432]">
               Une attention particulière, à chaque étape.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function Contact() {
             <h3 className="mb-0 mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] leading-[1.05] tracking-[-0.035em] text-[#38141c]" id="contact-form-title">
               Parlons de votre projet.
             </h3>
-            <p className="mb-0 mt-3 max-w-md text-sm leading-6 text-[#735c57]">
+            <p className="mb-0 mt-3 max-w-md text-sm leading-6 text-[#4d3432]">
               Une question sur la coupe ou une demande particulière ? Notre équipe vous répond avec plaisir.
             </p>
           </div>
@@ -155,7 +155,7 @@ export default function Contact() {
               <button className="store-button inline-flex h-[52px] items-center justify-center self-end rounded-[12px] border border-[#55101f] bg-transparent px-8 text-[0.68rem] font-bold uppercase tracking-[0.16em] text-[#55101f] hover:bg-[#55101f] hover:text-[#f6efe6]" type="submit">
                 Envoyer le message
               </button>
-              <p aria-live="polite" className="m-0 text-right font-sans text-[11px] text-[#735c57]">
+              <p aria-live="polite" className="m-0 text-right font-sans text-[11px] text-[#4d3432]">
                 {submitted
                   ? "Votre application de messagerie va s’ouvrir pour l’envoi."
                   : "Votre application de messagerie s’ouvrira pour l’envoi. Adresse provisoire à configurer."}

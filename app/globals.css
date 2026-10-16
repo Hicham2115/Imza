@@ -44,7 +44,7 @@
   --secondary: #f3e9dd;
   --secondary-foreground: #38141c;
   --muted: #efe5da;
-  --muted-foreground: #735c57;
+  --muted-foreground: #4d3432;
   --accent: #efe5da;
   --accent-foreground: #38141c;
   --destructive: #b42318;
@@ -131,14 +131,103 @@ body {
     box-shadow: 0 8px 20px rgb(56 20 28 / 16%);
   }
 
+  .menu-toggle:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
   .store-button:hover svg {
     transform: translateX(3px);
+  }
+
+  .menu-toggle:hover svg {
+    transform: none;
   }
 }
 
 .store-button:focus-visible {
   outline: 2px solid #9c7650;
   outline-offset: 4px;
+}
+
+.story-approach-link {
+  transition: color 220ms ease;
+}
+
+@media (hover: hover) {
+  .story-approach-link:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-approach-link,
+  .story-approach-link svg {
+    transition: none;
+  }
+}
+
+.product-filter {
+  display: inline-flex;
+  min-height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: transparent;
+  padding: 0 0.1rem;
+  color: #51443c;
+  font: inherit;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.product-filter:hover,
+.product-filter[aria-pressed="true"] {
+  color: #55101f;
+}
+
+.product-filter__swatch {
+  display: block;
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  border: 1px solid rgb(56 20 28 / 9%);
+  border-radius: 50%;
+  outline: 1px solid transparent;
+  outline-offset: 3px;
+  transition: outline-color 180ms ease, transform 180ms ease;
+}
+
+.product-filter__swatch--active {
+  outline-color: #55101f;
+  transform: scale(0.9);
+}
+
+.product-sort {
+  border: 0;
+  border-bottom: 1px solid #bda984;
+}
+
+.product-image-button:focus-visible,
+.product-filter:focus-visible {
+  outline: 2px solid #9c7650;
+  outline-offset: 4px;
+}
+
+.product-color-dot {
+  width: 11px;
+  height: 11px;
+  flex: 0 0 auto;
+  border: 1px solid rgb(0 0 0 / 10%);
+  border-radius: 50%;
+}
+
+.product-color-dot--active {
+  outline: 1px solid #55101f;
+  outline-offset: 3px;
 }
 
 * {
